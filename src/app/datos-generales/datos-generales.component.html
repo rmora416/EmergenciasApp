@@ -1,1 +1,84 @@
-<p>datos-generales works!</p>
+<div [formGroup]='generalesForm'>
+
+  <div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12 col-border change-color">
+            <label><b> 1. Emergencia:  </b>  </label>
+            <br />            
+
+            <mat-form-field>
+              <input matInput type="text" placeholder="EmergenciaID" formControlName='EmergenciaID'>
+            </mat-form-field>
+                
+        </div>
+    </div>
+
+    <div class="row">                                    
+        <div class="col-xs-12 col-sm-4 col-lg-4 col-border change-color" ng-class="{'has-error': submitted && myForm.fechaVisita.$error.required}">
+            <div class="input-group inline">
+                <label>2. Fecha de Visita:</label>
+                <br />
+                
+                <mat-form-field>
+                  <input matInput type="date" datepicker="" placeholder="mm/dd/yyyy" name="fechaVisita" formControlName='Fecha_Visita'>
+                </mat-form-field>
+
+            </div>
+          </div>            
+
+            <div class="col-xs-12 col-sm-4 col-lg-4 col-border change-color" ng-class="{'has-error':submitted && myForm.tipoInspeccion.$error.required}">
+              <label>3. Tipo de Inspección:</label>
+              <br />
+              <label class="radio-inline">
+                  <input type="radio" formControlName='Solo_Externa' name="Solo_Externa" value="true">Solo externa
+              </label>
+              <label class="radio-inline">
+                  <input type="radio" formControlName='Solo_Externa' name="Solo_Externa" value="false">Completa
+              </label>
+
+
+              
+          </div>
+          <div class="col-xs-12 col-sm-4 col-lg-4 col-border change-color" ng-class="{'has-error': submitted && myForm.valoracion.$error.required}">
+              <label>4. ¿Se puede realizar la valoración del daño?</label>
+              <br />
+              <label class="radio-inline">
+                  <input type="radio" formControlName='Valoracion_Realizada' name="Valoracion_Realizada" value="true" ng-required="!boleta.Valoracion_Realizada">Si
+              </label>
+              <label class="radio-inline">
+                  <input type="radio" formControlName='Valoracion_Realizada' name="Valoracion_Realizada" value="false" ng-required="!boleta.Valoracion_Realizada">No
+              </label>
+              
+          </div>
+
+        </div>
+      </div>
+              
+      
+    
+
+    <mat-form-field>
+        <input matInput type="text" placeholder="ID_Tipo_Acceso" formControlName='ID_Tipo_Acceso'>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="text" placeholder="ID_Fallas_Suministro_Electrico" formControlName='ID_Fallas_Suministro_Electrico'>
+    </mat-form-field>
+
+    
+        <mat-checkbox formControlName='Focos_Contaminacion'>Focos_Contaminacion</mat-checkbox>
+        
+        <mat-checkbox formControlName='Informe_Condiciones_Riesgo'>Informe_Condiciones_Riesgo</mat-checkbox>
+    
+
+    <mat-form-field>
+        <input matInput type="text" placeholder="ID_Institucion_Informe" formControlName='ID_Institucion_Informe'>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="text" placeholder="Otro_Institucion_Informe" formControlName='Otro_Institucion_Informe'>
+    </mat-form-field>
+
+  </div>
+  

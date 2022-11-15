@@ -1,1 +1,350 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select
+{
+    max-width: 280px;
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: left;        /* adjust as needed */
+    color: #d05604;         /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+.panel-title {
+    color:#d05604;
+    font-weight:bold;
+}
+
+
+/*[class*="col-"] {
+  border: 1px solid silver;
+  padding: 10px;
+}*/
+.col-border {
+  border: 1px solid silver;
+  padding: 10px;
+}
+
+.notbold{
+    font-weight:normal;
+    font-size:14px;
+}​
+
+
+* {
+    box-sizing: border-box;
+}
+
+.col-container {
+    display: table;
+    width: 100%;
+}
+.col {
+    display: table-cell;
+    padding: 16px;
+}
+
+.col-xs-4 {
+    display: table-cell;
+    padding: 16px;
+}
+
+.col-table {
+    display: table-cell;
+    padding: 16px;
+}
+
+
+.col-md-3 {
+    display: table-cell;
+    padding: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+    .col { 
+        display: block;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .col-xs-4 {
+        display: block;
+        width: 100%;
+    }
+
+    .col-md-3 {
+        display: block;
+        width: 100%;
+    }
+
+}
+
+.justifyContent {
+  display: flex;
+  justify-content: space-between;
+  margin-left:15%;
+  margin-right:15%
+}
+
+.has-error {
+    background-color:#f9efed;
+}
+
+.change-color {
+    transition: 0.4s all;
+}
+.change-color:hover, .change-color:focus, .change-color:active {    
+    background-color: #fcfaef;    
+}
+
+.form-check-label:hover, .form-check-label:focus, .form-check-label:active {    
+    background-color: #e3e9f2;    
+}
+
+.radio-inline:hover, .radio-inline:focus, .radio-inline:active {    
+    background-color: #e3e9f2;    
+}
+
+.radio:hover, .radio:focus, .radio:active {    
+    background-color: #e3e9f2;    
+}
+
+.sub-titulo {
+    background-color: #f0f0f5;
+}
+
+.masinfo {
+    color: gray;
+    font-size:small;
+    font-style:italic;
+}
+
+.sub-titulo1 {
+    background-color: #e6e6e6;
+}
+
+.comentario {
+    font-size:small;
+    font-style:italic;
+    color:gray;
+}
+
+.repeat_color {
+    background-color:#fff5f0;
+}
+
+
+.radio-inline+.radio-inline {
+    margin-left: 0;
+}
+
+.radio-inline {
+    margin-right: 20px;
+}
+
+.inline{
+      display:inline-block;
+    }
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.animate-repeat {
+  line-height:40px;
+  list-style:none;
+  box-sizing:border-box;
+}
+
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  transition:all linear 0.5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height:40px;
+}
+
+
+.myPanel{
+	border: 1px solid #687d6d;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #ccc;
+	margin: 3%;
+}
+
+.myPanel .heading{	
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;	
+	padding: 10px 20px;
+	vertical-align: top;    
+}
+
+.myPanel .body{
+	padding: 10px 20px;
+}
+
+.myPanel .showOnHover {
+	display: none;
+	text-align: right;	
+}
+
+.myPanel:hover{
+	box-shadow: 0px 0px 8px #666;
+	border: 2px solid #687d6d;
+}
+.myPanel:hover .showOnHover{
+	display: inline-block;
+    text-align: right;
+}
+
+
+
+
+#Encabezado
+{
+	margin:0px;
+	padding:0px;
+	margin-right:15px;
+}
+
+#EncabezadoTit
+{
+	font-family: "gotham_blackregular";
+	color: rgba(25,37,90,1);
+	padding:0px;
+	text-align:center;
+	line-heightx:1em;
+}
+
+#EncabezadoTit2
+{
+	font-family: "gotham_blackregular";
+    font-size: 22px;
+	color: #d05604;
+	padding:0px;
+    margin-top:inherit;
+	text-align:center;
+	line-heightx:1em;
+}
+
+#titulo{float:left;}
+
+#Menu_Pri_Iconos   { margin-right:15px; }
+#Menu_Pri_Iconos a { padding: 4px; }
+
+#M_Inicio	{ color:rgba(0,73,140,1)   !important; font-size:20px !important; float:left;}
+#M_Facebook	{ color:rgba(57,89,156,1)  !important; font-size:34px !important; }
+#M_Twitter  { color:rgba(24,162,247,1) !important; font-size:36px !important; }
+
+#R_Sociales { float:right; }
+
+.w3-button{border:none;display:inline-block;outline:0;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+	
+.w3-button:hover{color:#000!important;background-color:#ccc!important}
+
+.navbar-toggle.navbar-left {
+  float: left;
+  margin-left: 10px;
+}
+
+@media (min-width:1340px){
+	body {width:100%;}
+	#Encabezado{height:109px;}
+	#EncabezadoImg{width:24.99999%; float:left;}
+    #titulo{float:left; width:49.99999%}
+	#EncabezadoTit{ font-size:30px;}
+}
+
+@media (max-width:1339px) and (min-width:993px){
+	body {width:100%;}
+	#Encabezado{height:109px;}
+	#EncabezadoImg{width:24.99999%; float:left;}
+	#EncabezadoTit{font-size:30px;}
+    #titulo{float:left; width:49.99999%}
+}
+
+@media (max-width:992px) and (min-width:763px){
+	body {width:100%;}
+	#Encabezado{height:109px;}
+	#EncabezadoImg{width:33.33333%; float:left;}
+	#EncabezadoTit{font-size:25px;}
+    #titulo{float:left; width:49.99999%}
+}
+
+@media (max-width:762px) and (min-width:623px){
+	body {width:100%;}
+	#Encabezado{height:109px;}
+	#EncabezadoImg{width:33.33333%; float:left;}
+	#EncabezadoTit{font-size:medium;}
+    #titulo{float:left; width:49.99999%}
+}
+
+
+@media (max-width:622px){
+    #Encabezado{height:159px;}
+	#Encabezado, #Menu_Pri_Iconos {margin:0px 10px;}
+	#EncabezadoImg, #titulo{width:100%; text-align:center; padding:0px; margin:0px;}
+	#EncabezadoTit{font-size:medium;}
+}

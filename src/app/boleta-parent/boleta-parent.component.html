@@ -1,1 +1,28 @@
-<p>boleta-parent works!</p>
+
+   
+<!-- <mat-progress-bar mode='indeterminate' *ngIf='showLoading'></mat-progress-bar> -->
+<div class="mat-typography">
+<h1>Boleta de Ingreso</h1>
+
+<div class="checkout-form">
+    <form novalidate [formGroup]="checkoutForm">
+    <mat-form-field>
+        <input matInput type="text" placeholder='Número de boleta' formControlName="Num_Boleta">
+    </mat-form-field>
+
+    <mat-tab-group>            
+        <mat-tab label="Datos Generales" style="background:yellow">
+            <app-datos-generales (formReady)="formInitialized('Generales', $event)"></app-datos-generales>
+        </mat-tab>        
+    </mat-tab-group>
+    
+</form>
+
+</div>
+
+<h2 class='mat-h2'>Form Value</h2>
+<pre>
+    {{checkoutForm.value | json}}
+</pre>
+</div>
+
