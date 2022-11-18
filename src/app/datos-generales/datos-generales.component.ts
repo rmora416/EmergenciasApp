@@ -1,7 +1,10 @@
 
 import { Component, Output, EventEmitter, OnInit, AfterContentInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
-import { Generales } from '../Clases/DatosGenerales.class';
+import { Generales_item } from '../Clases/DatosGenerales.class';
+import { catalogo } from '../Clases/Catalogo.class';
+import {BoletaService} from '../Servicios/boleta.service'
+import {CatalogosService} from '../Servicios/catalogos.service'
 
 @Component({
   selector: 'app-datos-generales',
@@ -10,11 +13,12 @@ import { Generales } from '../Clases/DatosGenerales.class';
 })
 export class DatosGeneralesComponent implements OnChanges, OnInit {
 
-  @Input() datos! : Generales;
+  @Input() datos! : Generales_item;
   @Output() formReady = new EventEmitter<FormGroup>()
   generalesForm!: FormGroup;
+  emergencias: catalogo[] = [];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public boletaService: BoletaService, public catalogosService: CatalogosService) { }
 
   ngOnInit(): void {
     this.generalesForm = this.fb.group({
@@ -31,9 +35,13 @@ export class DatosGeneralesComponent implements OnChanges, OnInit {
       Otro_Institucion_Informe: ['']
 
     });
-
     // Emit the form group to the parent
     this.formReady.emit(this.generalesForm);
+
+    this.catalogosService.getEmergencias().subscribe(items => {
+      this.emergencias = items;       
+    });
+
   }
 
   ngOnChanges(changes: SimpleChanges) {
