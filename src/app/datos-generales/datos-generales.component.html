@@ -1,87 +1,269 @@
-<div [formGroup]='generalesForm'>
-
-  <div class="container-fluid">
-
-    <div class="row">
-        <div class="col-sm-12 col-border change-color">
-            <label><b> 1. Emergencia:  </b>  </label>
-            <br />            
-            
-            <mat-form-field style="width:350px">
-                <mat-select matInput placeholder="Emergencia" formControlName='EmergenciaID' name="category">
-                  <mat-option *ngFor="let item of emergencias" [value]="item.ID">
-                    {{ item.Descripcion }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-        </div>
+<div [formGroup]="generalesForm">
+  <div class="panel panel-default border rounded p-3 mt-4 ml-5 mr-5">
+    <div class="panel-heading active">
+      <h4 class="panel-title" style="color: #d05604">
+        Información de Seguimiento
+      </h4>
     </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <label> 1. Emergencia: </label>
+          <br />
 
-    <div class="row">                                    
-        <div class="col-xs-12 col-sm-4 col-lg-4 col-border change-color" ng-class="{'has-error': submitted && myForm.fechaVisita.$error.required}">
-            <div class="input-group inline">
-                <label>2. Fecha de Visita:</label>
-                <br />
-                
-                <mat-form-field>
-                  <input matInput type="date" datepicker="" placeholder="dd/mm/aaaa" name="fechaVisita" formControlName='Fecha_Visita'>
-                </mat-form-field>
-
-            </div>
-          </div>            
-
-            <div class="col-xs-12 col-sm-4 col-lg-4 col-border change-color" ng-class="{'has-error':submitted && myForm.tipoInspeccion.$error.required}">
-              <label>3. Tipo de Inspección:</label>
-              <br />
-              <label class="radio-inline">
-                  <input type="radio" formControlName='Solo_Externa' name="Solo_Externa" value="true">Solo externa
-              </label>
-              <label class="radio-inline">
-                  <input type="radio" formControlName='Solo_Externa' name="Solo_Externa" value="false">Completa
-              </label>
-
-
-              
+          <div class="dropdown formulario">
+            <mat-form-field style="width: 350px">
+              <mat-select
+                matInput
+                placeholder="Emergencia"
+                formControlName="EmergenciaID"
+                name="category"
+              >
+                <mat-option *ngFor="let item of emergencias" [value]="item.ID">
+                  {{ item.Descripcion }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
-          <div class="col-xs-12 col-sm-4 col-lg-4 col-border change-color" ng-class="{'has-error': submitted && myForm.valoracion.$error.required}">
-              <label>4. ¿Se puede realizar la valoración del daño?</label>
-              <br />
-              <label class="radio-inline">
-                  <input type="radio" formControlName='Valoracion_Realizada' name="Valoracion_Realizada" value="true" ng-required="!boleta.Valoracion_Realizada">Si
-              </label>
-              <label class="radio-inline">
-                  <input type="radio" formControlName='Valoracion_Realizada' name="Valoracion_Realizada" value="false" ng-required="!boleta.Valoracion_Realizada">No
-              </label>
-              
-          </div>
-
         </div>
       </div>
-              
-      
-    
-
-    <mat-form-field>
-        <input matInput type="text" placeholder="ID_Tipo_Acceso" formControlName='ID_Tipo_Acceso'>
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput type="text" placeholder="ID_Fallas_Suministro_Electrico" formControlName='ID_Fallas_Suministro_Electrico'>
-    </mat-form-field>
-
-    
-        <mat-checkbox formControlName='Focos_Contaminacion'>Focos_Contaminacion</mat-checkbox>
-        
-        <mat-checkbox formControlName='Informe_Condiciones_Riesgo'>Informe_Condiciones_Riesgo</mat-checkbox>
-    
-
-    <mat-form-field>
-        <input matInput type="text" placeholder="ID_Institucion_Informe" formControlName='ID_Institucion_Informe'>
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput type="text" placeholder="Otro_Institucion_Informe" formControlName='Otro_Institucion_Informe'>
-    </mat-form-field>
-
+    </div>
   </div>
-  
+
+  <div class="panel panel-default border rounded p-3 mt-4 ml-5 mr-5">
+    <div class="panel-heading active">
+      <h4 class="panel-title" style="color: #d05604">A. DATOS GENERALES</h4>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div
+          class="col-xs-12 col-sm-4 col-lg-4"
+          ng-class="{
+            'has-error': submitted && myForm.fechaVisita.$error.required
+          }"
+        >
+          <div class="input-group inline">
+            <label>2. Fecha de Visita:</label>
+            <br />
+
+            <mat-form-field>
+              <input
+                matInput
+                type="date"
+                datepicker=""
+                placeholder="dd/mm/aaaa"
+                name="fechaVisita"
+                formControlName="Fecha_Visita"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div
+          class="col-xs-12 col-sm-4 col-lg-4"
+          ng-class="{
+            'has-error': submitted && myForm.tipoInspeccion.$error.required
+          }"
+        >
+          <label>3. Tipo de Inspección:</label>
+          <br />
+          <div class="form-check form-check-inline">
+            <label class="radio-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                formControlName="Solo_Externa"
+                name="Solo_Externa"
+                value="true"
+              />Solo externa
+            </label>
+          </div>
+          <div class="form-check form-check-inline mt-3">
+            <label class="radio-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                formControlName="Solo_Externa"
+                name="Solo_Externa"
+                value="false"
+              />Completa
+            </label>
+          </div>
+        </div>
+
+        <div
+          class="col-xs-12 col-sm-4 col-lg-4"
+          ng-class="{
+            'has-error': submitted && myForm.valoracion.$error.required
+          }"
+        >
+          <label>4. ¿Se puede realizar la valoración del daño?</label>
+          <br />
+          <div class="form-check form-check-inline mt-3">
+            <label class="radio-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                formControlName="Valoracion_Realizada"
+                name="Valoracion_Realizada"
+                value="true"
+                ng-required="!boleta.Valoracion_Realizada"
+              />Si
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="radio-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                formControlName="Valoracion_Realizada"
+                name="Valoracion_Realizada"
+                value="false"
+                ng-required="!boleta.Valoracion_Realizada"
+              />No
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-xs-12 col-sm-4 col-lg-4"
+          ng-class="{
+            'has-error': submitted && myForm.tipoInspeccion.$error.required
+          }"
+        >
+          <label>5. ¿Tiene acceso la vivienda?:</label>
+          <br />
+          <mat-form-field style="width: 350px">
+            <mat-select
+              matInput
+              placeholder="Tipo de Acceso"
+              formControlName="ID_Tipo_Acceso"
+              name="category"
+            >
+              <mat-option *ngFor="let item of tiposAcceso" [value]="item.ID">
+                {{ item.Descripcion }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-xs-12 col-sm-4 col-lg-4"
+          ng-class="{
+            'has-error': submitted && myForm.tipoInspeccion.$error.required
+          }"
+        >
+          <label
+            >6. ¿Se observan fallas en el sistema de suministro eléctrico
+            externo de la vivienda?:</label
+          >
+          <br />
+          <mat-form-field style="width: 350px">
+            <mat-select
+              matInput
+              placeholder="Falla Suministro Eléctrico"
+              formControlName="ID_Fallas_Suministro_Electrico"
+              name="category"
+            >
+              <mat-option
+                *ngFor="let item of fallasSuministroElectrico"
+                [value]="item.ID"
+              >
+                {{ item.Descripcion }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="p-3"
+        ng-class="{
+          'has-error': submitted && myForm.Focos_Contaminacion.$error.required
+        }"
+      >
+        <label
+          >7. ¿Se observan focos de contaminación en los alrededores de la
+          vivienda?:</label
+        >
+        <br />
+        <div class="form-check mt-3">
+          <mat-checkbox formControlName="Focos_Contaminacion"
+            >Focos Contaminación</mat-checkbox
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div
+        
+        ng-class="{
+          'has-error': submitted && myForm.tipoInspeccion.$error.required
+        }"
+      >
+        <label
+          >8. ¿Se tiene conocimiento de la existencia de algún informe técnico
+          sobre las condiciones de riesgo acerca de la vivienda?:</label
+        >
+        <br />
+        <div class="form-check mt-3">
+          <mat-checkbox formControlName="Informe_Condiciones_Riesgo"
+            >Informe Condiciones Riesgo</mat-checkbox
+          >
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="panel panel-default border rounded p-3 mt-4 ml-5 mr-5">
+  <div class="panel-heading active">
+    <h4 class="panel-title" style="color: #d05604">B. DATOS INSTITUCION</h4>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div
+        ng-class="{
+          'has-error': submitted && myForm.tipoInspeccion.$error.required
+        }"
+      >
+        <label>9. Institución que presenta el informe:</label>
+        <br />
+        <mat-form-field style="width: 350px">
+          <mat-select
+            matInput
+            placeholder="Institución Informe"
+            formControlName="ID_Institucion_Informe"
+            name="category"
+          >
+            <mat-option *ngFor="let item of instituciones" [value]="item.ID">
+              {{ item.Descripcion }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div
+        class="col-xs-12 col-sm-4 col-lg-4"
+        ng-class="{
+          'has-error': submitted && myForm.tipoInspeccion.$error.required
+        }"
+      >
+        <label>10. Informe de Otra Institución:</label>
+        <br />
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            placeholder="Informe de Otra Institución"
+            formControlName="Otro_Institucion_Informe"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>

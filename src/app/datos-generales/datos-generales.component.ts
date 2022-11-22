@@ -17,6 +17,9 @@ export class DatosGeneralesComponent implements OnChanges, OnInit {
   @Output() formReady = new EventEmitter<FormGroup>()
   generalesForm!: FormGroup;
   emergencias: catalogo[] = [];
+  tiposAcceso: catalogo[] = [];
+  fallasSuministroElectrico: catalogo[] = [];
+  instituciones: catalogo[] = [];
 
   constructor(private fb: FormBuilder, public boletaService: BoletaService, public catalogosService: CatalogosService) { }
 
@@ -42,6 +45,17 @@ export class DatosGeneralesComponent implements OnChanges, OnInit {
       this.emergencias = items;       
     });
 
+    this.catalogosService.getTipo_Acceso().subscribe(items => {
+      this.tiposAcceso = items;
+    });
+
+    this.catalogosService.getTipo_SI_No_NS().subscribe(items => {
+      this.fallasSuministroElectrico = items;
+    });
+
+    this.catalogosService.getInstituciones().subscribe(items => {
+      this.instituciones = items;
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
