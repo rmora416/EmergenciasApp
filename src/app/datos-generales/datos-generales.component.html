@@ -11,7 +11,7 @@
           <label> 1. Emergencia: </label>
           <br />
 
-          <div class="dropdown formulario">
+          <div class="dropdown">
             <mat-form-field style="width: 350px">
               <mat-select
                 matInput
@@ -129,7 +129,7 @@
         <div
           class="col-xs-12 col-sm-4 col-lg-4"
           ng-class="{
-            'has-error': submitted && myForm.tipoInspeccion.$error.required
+            'has-error': submitted && myForm.tiposAcceso.$error.required
           }"
         >
           <label>5. ¿Tiene acceso la vivienda?:</label>
@@ -139,7 +139,7 @@
               matInput
               placeholder="Tipo de Acceso"
               formControlName="ID_Tipo_Acceso"
-              name="category"
+              name="ID_Tipo_Acceso"
             >
               <mat-option *ngFor="let item of tiposAcceso" [value]="item.ID">
                 {{ item.Descripcion }}
@@ -152,7 +152,7 @@
         <div
           class="col-xs-12 col-sm-4 col-lg-4"
           ng-class="{
-            'has-error': submitted && myForm.tipoInspeccion.$error.required
+            'has-error': submitted && myForm.fallasSuministroElectrico.$error.required
           }"
         >
           <label
@@ -165,7 +165,7 @@
               matInput
               placeholder="Falla Suministro Eléctrico"
               formControlName="ID_Fallas_Suministro_Electrico"
-              name="category"
+              name="ID_Fallas_Suministro_Electrico"
             >
               <mat-option
                 *ngFor="let item of fallasSuministroElectrico"
@@ -200,7 +200,7 @@
 
     <div class="row">
       <div
-        
+        class="p-3"
         ng-class="{
           'has-error': submitted && myForm.tipoInspeccion.$error.required
         }"
@@ -211,58 +211,58 @@
         >
         <br />
         <div class="form-check mt-3">
-          <mat-checkbox formControlName="Informe_Condiciones_Riesgo"
-            >Informe Condiciones Riesgo</mat-checkbox
+          <mat-checkbox formControlName="Informe_Condiciones_Riesgo" 
+            id="Informe_Condiciones_Riesgo" (change)="mostarCampoInstitucion()" [checked]="mostrarInstituciones">Informe Condiciones Riesgo</mat-checkbox
           >
         </div>
       </div>
-    </div>
-    
-  </div>
-</div>
+    </div>   
 
-<div class="panel panel-default border rounded p-3 mt-4 ml-5 mr-5">
-  <div class="panel-heading active">
-    <h4 class="panel-title" style="color: #d05604">B. DATOS INSTITUCION</h4>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div
-        ng-class="{
-          'has-error': submitted && myForm.tipoInspeccion.$error.required
-        }"
-      >
-        <label>9. Institución que presenta el informe:</label>
-        <br />
-        <mat-form-field style="width: 350px">
-          <mat-select
-            matInput
-            placeholder="Institución Informe"
-            formControlName="ID_Institucion_Informe"
-            name="category"
-          >
-            <mat-option *ngFor="let item of instituciones" [value]="item.ID">
-              {{ item.Descripcion }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+    <div *ngIf="mostrarInstituciones">
+      <div class="row">
+        <div
+          class="p-3"
+          ng-class="{
+            'has-error': submitted && myForm.tipoInspeccion.$error.required
+          }"
+        >
+          <label>9. Institución que presenta el informe:</label>
+          <br />
+          <mat-form-field style="width: 350px">
+            <mat-select
+              matInput
+              placeholder="Institución Informe"
+              formControlName="ID_Institucion_Informe"
+              name="category"
+            >
+              <mat-option *ngFor="let item of instituciones" [value]="item.ID">
+                {{ item.Descripcion }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
-      <div
-        class="col-xs-12 col-sm-4 col-lg-4"
-        ng-class="{
-          'has-error': submitted && myForm.tipoInspeccion.$error.required
-        }"
-      >
-        <label>10. Informe de Otra Institución:</label>
-        <br />
-        <mat-form-field>
-          <input
-            matInput
-            type="text"
-            placeholder="Informe de Otra Institución"
-            formControlName="Otro_Institucion_Informe"
-          />
-        </mat-form-field>
+    </div>
+
+    <div *ngIf="mostrarInstituciones">
+      <div class="row">
+        <div
+          class="col-xs-12 col-sm-4 col-lg-4"
+          ng-class="{
+            'has-error': submitted && myForm.tipoInspeccion.$error.required
+          }"
+        >
+          <label>10. Informe de Otra Institución:</label>
+          <br />
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              placeholder="Informe de Otra Institución"
+              formControlName="Otro_Institucion_Informe"
+            />
+          </mat-form-field>
+        </div>
       </div>
     </div>
   </div>
