@@ -6,10 +6,12 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Generales_item } from '../Clases/DatosGenerales.class';
 
 
+
 @Injectable({ providedIn: 'root' })
 export class BoletaService {
 
   private API_URL = 'https://prueba.mivah.go.cr/Emergencias_API/api';  // URL to web api
+  
 
   httpOptions = {
     headers: new HttpHeaders({ 
@@ -83,6 +85,16 @@ export class BoletaService {
       catchError(this.handleError<any>('updateItem'))
     );
   }
+
+  //////// Metodos fuera de linea //////////
+
+/*   getDatos_OffLine(): Observable<ItemBoleta[]> {
+    return this.http.get<Generales_item[]>(this.API_URL)
+      .pipe(        
+        catchError(this.handleError<Generales_item[]>('getTipo_Acceso', []))
+      );
+  } */
+
 
   /**
    * Handle Http operation that failed.

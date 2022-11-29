@@ -9,6 +9,10 @@ import {FormsModule} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatIconModule } from '@angular/material/icon'
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -20,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { BoletaService } from './Servicios/boleta.service';
 import { CatalogosService } from './Servicios/catalogos.service';
+import { ListaBoletasComponent } from './lista-boletas/lista-boletas.component';
 
 
 
@@ -27,7 +32,8 @@ import { CatalogosService } from './Servicios/catalogos.service';
   declarations: [
     AppComponent,
     BoletaParentComponent,
-    DatosGeneralesComponent
+    DatosGeneralesComponent,
+    ListaBoletasComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,11 @@ import { CatalogosService } from './Servicios/catalogos.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatIconModule,
+    
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     
     MatInputModule,
     MatFormFieldModule,

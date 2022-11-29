@@ -1,0 +1,65 @@
+<div class="container mt-3">
+    <h2>LISTA DE BOLETAS DE EMERGENCIA</h2>
+  
+      <mat-form-field color="accent" appearance="fill" >
+          <mat-label >BUSCAR INFORMACIÓN ESPECIFICA</mat-label>
+          <input matInput (keyup)="doFilter($any($event.target).value)" placeholder="Escriba el texto que desea buscar" (click)="searching=true" #input >
+          <button mat-icon-button matSuffix (click)="input.value=''; doFilter(''); searching= !searching" color="accent">
+              <mat-icon style="-webkit-text-fill-color:blue" *ngIf="!searching">search</mat-icon>
+              <mat-icon *ngIf="searching">clear</mat-icon>
+          </button>    
+      </mat-form-field>
+  
+      <div class="sticky-container" style="margin-top: 0em;">
+      <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+          class="table table-hover table-bordered">
+  
+          <!-- URI Column -->
+        <ng-container matColumnDef="URI">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by URI">
+                URI
+            </th>
+            <td mat-cell *matCellDef="let element"><div class="cell-column">URI:</div> {{element.URI}} </td>
+          </ng-container>
+
+        <!-- Fecha_Visita Column -->
+        <ng-container matColumnDef="Fecha_Visita">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Fecha_Visita">
+            Fecha de Visita
+          </th>
+          <td mat-cell *matCellDef="let element"><div class="cell-column">Fecha Visita:</div> {{element.Fecha_Visita}} </td>
+        </ng-container>
+  
+        <!-- Solo_Externa Column -->
+        <ng-container matColumnDef="Solo_Externa">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Solo_Externa">
+            Solo_Externa
+          </th>
+          <td mat-cell *matCellDef="let element"><div class="cell-column">Solo_Externa:</div> {{element.Solo_Externa}} </td>
+        </ng-container>
+  
+        <!-- Valoracion_Realizada Column -->
+        <ng-container matColumnDef="Valoracion_Realizada">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Valoracion_Realizada">
+            Valoracion_Realizada
+        </th>
+        <td mat-cell *matCellDef="let element"><div class="cell-column">Valoracion_Realizada:</div> {{element.Valoracion_Realizada}} </td>
+        </ng-container>
+          
+  
+        <thead class="table-light">
+        <tr class="table-light" style="background-color:rgb(234, 239, 245);" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      </thead>
+        
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <!-- pagination -->
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  
+      </div>
+  </div>
+  
+  <pre>
+    {{items_offline | json}}
+</pre>
